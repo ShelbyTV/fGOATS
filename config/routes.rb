@@ -1,10 +1,13 @@
 Fgoats::Application.routes.draw do
-  resources :applicants
-
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
 
   match '/' => 'terminal#term'
+  
+  resources :applicants do
+    collection do
+      get 'count'
+    end
+  end
+    
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

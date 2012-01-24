@@ -1,11 +1,10 @@
 class ApplicantsController < ApplicationController
-  # GET /applicants
-  # GET /applicants.json
-  def index
-    @applicants = Applicant.all
-
+  
+  def count
+    @applicant_count = Applicant.count
+    
     respond_to do |format|
-      format.json { render json: @applicants }
+      format.json { render json: @applicant_count }
     end
   end
 

@@ -13,8 +13,7 @@ function echoMenu(t, cb){
 		{c:"1. Apply", d:1},
 		{c:"2. F.A.Q", d:1},
 		{c:"3. About G.O.A.T.S.", d:1},
-		{c:"4. View Applicants List", d:1},
-		{c:"5. Access Swag", d:1},
+		{c:"4. View Applicant Count", d:1},
 		{c:"6. Launch Shelby.tv", d:1},
 		{c:'\n', d:1},
 		{c:'\n', d:1}
@@ -182,22 +181,43 @@ document.onkeydown = function() {
 
 
 
+
 				// ------------ (4) APPLICANT LIST ------------
 				} else if(command == '4') {
 					content = [
-						{c:'> APPLICANT LIST'},
-						{c:'coming soon'}
+						{c:'RUN \'APPLICANT COUNT\''},
+						{c:'>', d:300},
+						{c:'>', d:300},
+						{c:'>', d:300},
 					];
-					executeTerm(content, term, true);
+					executeTerm(content, term, false, function(){
+						$.getJSON('applicants/count', function(c){
+							content = [
+								{c:'\n'},
+								{c:"> NO LESS THAN "+(c+5)+" APPLICATIONS RECEIVED <"},
+								{c:'\n'},
+								{c:'\n'},
+								{c:'including:'},
+								{c:'\n'},
+								{c:'fred wilson @ usv'},
+								{c:'brad feld @ foundry group'},
+								{c:'fakegrimlock @'},
+								{c:'fred durst @ limp bizkit'},
+								{c:'dens @ foursquare'},
+								{c:'...'}
+							];
+							executeTerm(content, term, true);
+						});
+						
+					});
 					
 					
 					
 					
-				// ------------ (5) ACCESS SWAG ------------
+				// ------------ (5) ? ------------
 				} else if(command == '5') {
 					content = [
-						{c:'> STUFF WE ALL GET'},
-						{c:'coming soon'}
+						{c:'> THIS SECTION INTENTIONALLY LEFT BLANK <'},
 					];
 					executeTerm(content, term, true);
 					
