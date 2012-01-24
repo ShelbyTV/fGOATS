@@ -2,25 +2,29 @@ $(document).ready(function() { $('#main-welcome').hide().delay(250).fadeIn('slow
 
 function echoMenu(t, cb){
 	var content = [
-		{ c:'\n', d:1},
-		{ c:'\n', d:1},
-		{ c:"---------------------------------------"},
-		{ c:"Shelby.tv / Project G.O.A.T.S."},
-		{ c:"---------------------------------------"},
-		{ c:'\n', d:1},
-		{ c:"Please Select An Option:"},
-		{ c:'\n', d:1},
-		{ c:"1. Apply                 2. F.A.Q         3. About G.O.A.T.S."},
-		{ c:"4. View Applicants List   5. Access Swag  6. Launch Shelby.tv  7."},
-		{ c:'\n', d:1},
-		{ c:'\n', d:1}
+		{c:'\n', d:1},
+		{c:'\n', d:1},
+		{c:"---------------------------------------"},
+		{c:"Shelby.tv / Project G.O.A.T.S."},
+		{c:"---------------------------------------"},
+		{c:'\n', d:1},
+		{c:"Please Select An Option:"},
+		{c:'\n', d:1},
+		{c:"1. Apply", d:1},
+		{c:"2. F.A.Q", d:1},
+		{c:"3. About G.O.A.T.S.", d:1},
+		{c:"4. View Applicants List", d:1},
+		{c:"5. Access Swag", d:1},
+		{c:"6. Launch Shelby.tv", d:1},
+		{c:'\n', d:1},
+		{c:'\n', d:1}
 	];
 	echoContent(content, t, cb);
 }
 
 function echoContent(content, t, cb){
 	t.echo(content[0].c).addClass(content[0].cssClass || 'default');
-	(content=content.slice(1)).length ? setTimeout( function(){ echoContent(content, t, cb); }, content[0].d || 100) : cb();
+	(content=content.slice(1)).length ? setTimeout( function(){ echoContent(content, t, cb); }, content[0].d || 100) : (cb && cb());
 }
 
 function executeTerm(content, t, showMenu, cb){
@@ -56,13 +60,83 @@ document.onkeydown = function() {
 					];
 					executeTerm(content, term, true);
 
+
 				// ------------ (1) APPLY ------------
 				} else if(command == '1') {
 					content = [
 						{c:'> APPLY'},
-						{c:'coming soon'}
+						{c:'\n'},
+						{c:'PLEASE HIT \'ENTER\' WHEN YOU HAVE COMPLETED EACH FIELD'},
+						{c:'\n'}
 					];
-					executeTerm(content, term, true);
+					
+					executeTerm(content, term, false, function(){
+						
+						//>>>>>>>>>>
+						// Take the users application (using a new interpreter)
+						// and submit it back to our server via ajax
+						
+						term.resume();
+						var commandCount = 0, applicant_info = {};
+						
+						//push a new interpreter on the stack
+						//this interpreter only takes in applicant info
+						term.push(function(command, term){
+							
+							if(command == ''){
+								term.error("I've got all day...");
+								return;
+							}
+							
+							switch(commandCount){
+								case 0:
+									applicant_info.first_name = command;
+									term.set_prompt("LAST NAME >");
+									break;
+								case 1:
+									applicant_info.last_name = command;
+									term.set_prompt("COMPANY >");
+									break;
+								case 2:
+									applicant_info.company = command;
+									term.set_prompt("JOB TITLE >");
+									break;
+								case 3:
+									applicant_info.job_title = command;
+									term.set_prompt("EMAIL ADDRESS >");
+									break;
+								case 4:
+									applicant_info.email = command;
+									term.clear();
+									
+									term.echo("\nTransmitting...");
+									$.post('applicants', {'applicant': applicant_info}, null, 'json')
+										.success(function(){
+											term.clear();
+											term.echo("\n\nCongratulations!\nYou have successfully applied to participate in Project G.O.A.T.S.\nYou will receive an email confirmation shortly.\n\n");
+											//reset term
+											term.pop();
+											echoMenu(term);
+										})
+										.error(function(){
+											term.clear();
+											term.error("\n\nSorry "+applicant_info.first_name+", something went wrong.\nPlease try again later.\n\n\n");
+											//reset term
+											term.pop();
+											echoMenu(term);
+										});
+										
+									break;
+							}
+							commandCount++;
+						},{
+							prompt: 'FIRST NAME >',
+							name: 'apply'
+						});
+						//<<<<<<<<<<
+						
+						
+					});
 
 
 				// ------------ (2) FAQ ------------
