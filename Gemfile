@@ -7,6 +7,7 @@ gem 'rails', '3.1.1'
 
 
 gem "mongo_mapper"
+gem "bson_ext"
 
 
 # Gems used only for assets and not required
