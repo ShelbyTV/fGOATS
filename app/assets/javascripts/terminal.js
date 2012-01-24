@@ -1,4 +1,4 @@
-$(document).ready(function() { $('#main-welcome').hide().delay(250).fadeIn('slow'); }); 
+$(document).ready(function() { $('#main-welcome').hide().delay(100).fadeIn('slow'); }); 
 
 function echoMenu(t, cb){
 	var content = [
@@ -45,12 +45,12 @@ function executeTerm(content, t, showMenu, cb){
 	
 }
 
-document.onkeydown = function() {
+var termLoader = function() {
 	if(event.keyCode == 13) {
 		
 			$('#main-welcome').fadeOut('fast');
 		
-			$('#main').delay(500).hide().fadeIn('fast').terminal(function(command, term) {
+			$('#main').delay(200).hide().fadeIn('fast').terminal(function(command, term) {
 				var content;
 
 				// ------------ (0) INTERNZERO ------------
@@ -260,6 +260,14 @@ document.onkeydown = function() {
 
 
 
+				// ------------ random crap ------------
+				} else if(command == 'god') { term.echo( "god wouldn't be up this late");
+				} else if(command == 'goats') { term.echo( "fgoats");
+				} else if(command == 'wick') { term.echo( "girl");
+				} else if(command == 'spinosa') { term.pause();
+				
+
+
 				// ------------ bad command ------------
 				} else {
 					term.error('Unknown Command: ' + command + ' ');
@@ -275,5 +283,9 @@ document.onkeydown = function() {
 				width : '100%',
 				onInit: function(t){ echoMenu(t); }
 			});
+			
+			$(document).unbind('keydown', welcomeLoader);
 	}
 };
+
+$(document).bind('keydown', termLoader);
