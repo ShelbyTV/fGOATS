@@ -33,6 +33,9 @@ function executeTerm(content, t, showMenu, cb){
 		if(showMenu){
 			echoMenu(t, function(){
 				t.resume();
+				//after every entry, make sure we're scrolled enough
+				$("body").scrollTop($(".terminal-output").height());
+				
 				cb && cb();
 			});
 		} else {
@@ -145,11 +148,17 @@ document.onkeydown = function() {
 						{c:'\n', d:1},
 						{c:'\n', d:1},
 						{c:'WHAT IS PROJECT G.O.A.T.S.?'},
-						{c:'Project G.O.A.T.S. is a top secret interview series powered by Shelby.tv that will take place during SXSW Interactive in Austin, TX on Saturday, March 10th. We are currently accepting applications, but only a limited number of spots are available, and we will not be able to accommodate everyone. You are not required to have a SXSW badge be eligible, but you will be responsible for your transportation to and accommodations in Austin.', cssClass:'faqtext'},
+						{c:'Project G.O.A.T.S. is a top secret interview series powered by Shelby.tv that will take place during', cssClass:'faqtext'},
+						{c:'SXSW Interactive in Austin, TX on Saturday, March 10th.', cssClass:'faqtext'},
+						{c:'\nWe are currently accepting applications, but only a limited number of spots are available, and we', cssClass:'faqtext'},
+						{c:'will not be able to accommodate everyone.', cssClass:'faqtext'},
+						{c:'\nYou are not required to have a SXSW badge to be eligible, but you will be responsible for your', cssClass:'faqtext'},
+						{c:'transportation to and accommodations in Austin.', cssClass:'faqtext'},
 						{c:'\n', d:1},
 						{c:'\n', d:1},
 						{c:'WHO IS THE CELBRITY GUEST?'},
-						{c:'If you are selected, the identity of the celebrity guest will be revealed to you at the time of your interview.', cssClass:'faqtext'},
+						{c:'If you are selected, the identity of the celebrity guest will be revealed to you at the time of', cssClass:'faqtext'},
+						{c:'your interview.', cssClass:'faqtext'},
 						{c:'\n', d:1},
 						{c:'\n', d:1},
 						{c:'WILL THE INTERVIEW BE FILMED AND PROMOTED FAR AND WIDE?'},
@@ -217,7 +226,7 @@ document.onkeydown = function() {
 				// ------------ (5) ? ------------
 				} else if(command == '5') {
 					content = [
-						{c:'> THIS SECTION INTENTIONALLY LEFT BLANK <'},
+						{c:'> THERE IS NO 5. PLEASE PAY ATTENTION. <'},
 					];
 					executeTerm(content, term, true);
 					
@@ -254,11 +263,10 @@ document.onkeydown = function() {
 				// ------------ bad command ------------
 				} else {
 					term.error('Unknown Command: ' + command + ' ');
+					//after every entry, make sure we're scrolled enough
+					$("body").scrollTop($(".terminal-output").height());
 				}
 				
-				
-				//after every entry, make sure we're scrolled enough
-				$("body").scrollTop($(".terminal-output").height());
 				
 			}, {
 				greetings : "Main Screen On...\n" + "> \n" + "We have signal! \n" + "> \n\n\n",
