@@ -11,7 +11,7 @@ function echoMenu(t, cb){
 		{ c:"Please Select An Option:"},
 		{ c:'\n', d:1},
 		{ c:"1. Apply                 2. F.A.Q         3. About G.O.A.T.S."},
-		{ c:"4. View Applicants List   5. Access Swag  6. Launch Shelby.tv"},
+		{ c:"4. View Applicants List   5. Access Swag  6. Launch Shelby.tv  7."},
 		{ c:'\n', d:1},
 		{ c:'\n', d:1}
 	];
@@ -110,20 +110,27 @@ document.onkeydown = function() {
 
 				// ------------ (4) APPLICANT LIST ------------
 				} else if(command == '4') {
-					term.clear();
-					term.echo('> APPLICANT LIST').hide().delay(600).fadeIn('slow');
-					term.echo('\nRunning "Applicant List"...').hide().delay(1500).fadeIn('slow').css("font-size", "20px");
-					term.echo('\n>').hide().delay(1700).fadeIn('slow').css("font-size", "20px");
-					term.echo('\n>').hide().delay(1900).fadeIn('slow').css("font-size", "20px");
-					term.echo('\n>').hide().delay(2100).fadeIn('slow').css("font-size", "20px");
-					term.echo('\nCarol   Mike    Greg   Marcia   Peter   Jan\nBobby   Cindy   Alice   Sam').hide().delay(2300).fadeIn('slow').css("font-size", "20px");
-
-					term.echo('\n\n\n\n--------------------------------------- \nShelby.tv / Project G.O.A.T.S.\n---------------------------------------\n\n Please Select An Option:\n\n 1. Apply  2. F.A.Q  3. About G.O.A.T.S.  4. View Applicants List  5. Launch Shelby.tv \n\n\n').css("font-size", "20px").hide().delay(2600).fadeIn('slow');
+					content = [
+						{c:'> APPLICANT LIST'},
+						{c:'coming soon'}
+					];
+					executeTerm(content, term, true);
 					
 					
 					
-				// ------------ (5) SHELBY.TV ------------
+					
+				// ------------ (5) ACCESS SWAG ------------
 				} else if(command == '5') {
+					content = [
+						{c:'> STUFF WE ALL GET'},
+						{c:'coming soon'}
+					];
+					executeTerm(content, term, true);
+					
+					
+					
+				// ------------ (6) SHELBY.TV ------------
+				} else if(command == '6') {
 					content = [
 						{c:'> LAUNCH SHELBY.TV'},
 						{c:'\n', d:1},
@@ -139,14 +146,26 @@ document.onkeydown = function() {
 
 
 
+				// ------------ (7) LAVA ------------
+				} else if(command == '7') {
+					content = [
+						{c:'> DON\'T DIG TOO DEEP'},
+						{c:'you might get burned by the molten lava', cssClass:'faqtext'},
+						{c:'\n'}
+					];
+					executeTerm(content, term, true);
+
+
 
 				// ------------ bad command ------------
 				} else {
 					term.error('Unknown Command: ' + command + ' ');
 				}
 				
-				//keep scrolling
+				
+				//after every entry, make sure we're scrolled enough
 				$("body").scrollTop($(".terminal-output").height());
+				
 			}, {
 				greetings : "Main Screen On...\n" + "> \n" + "We have signal! \n" + "> \n\n\n",
 				prompt : 'Selection:',
