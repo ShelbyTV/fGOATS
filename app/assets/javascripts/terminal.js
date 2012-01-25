@@ -120,7 +120,7 @@ var termLoader = function() {
 											term.echo("Want you application prioritized?  Share >\n\n");
 											$(".terminal-output").append("<div class='roomy'>tell friends with <a href='//www.facebook.com/sharer.php?u=http%3A%2F%2Fprojectgoats.com&t=WTF%20is%20Project%20G.O.A.T.S.%3F!' class='popup' popup-width='640' popup-height='270'>Facebook</a></div>");
 											$(".terminal-output").append("<div class='roomy'>tweet it out on <a href='//twitter.com/intent/tweet?url=http%3A%2F%2Fprojectgoats.com&hashtags=shelbytv,goats&text=WTF is Project G.O.A.T.S.?!' class='popup' popup-width='600' popup-height='250'>Twitter</a></div>");
-											$(".terminal-output").append("<div class='roomy'>blog it on <a href='http://www.tumblr.com/share/link?url=http%3A%2F%2Fprojectgoats.com&name=F.G.O.A.T.S&description=WTF%20is%20Project%20G.O.A.T.S.%3F!' class='popup' popup-width='600' popup-height='700'>Tumblr</a></div>");
+											$(".terminal-output").append("<div class='roomy'>blog it on <a href='http://www.tumblr.com/share/link?url=http%3A%2F%2Fprojectgoats.com&name=G.O.A.T.S&description=WTF%20is%20Project%20G.O.A.T.S.%3F!' class='popup' popup-width='600' popup-height='700'>Tumblr</a></div>");
 											term.echo("\n\n");
 											//reset term
 											term.pop();
@@ -237,7 +237,7 @@ var termLoader = function() {
 					term.echo("> share g.o.a.t.s\n\n\n");
 					$(".terminal-output").append("<div class='roomy'>tell friends with <a href='//www.facebook.com/sharer.php?u=http%3A%2F%2Fprojectgoats.com&t=WTF%20is%20Project%20G.O.A.T.S.%3F!' class='popup' popup-width='640' popup-height='270'>Facebook</a></div>");
 					$(".terminal-output").append("<div class='roomy'>tweet it out on <a href='//twitter.com/intent/tweet?url=http%3A%2F%2Fprojectgoats.com&hashtags=shelbytv,goats&text=WTF is Project G.O.A.T.S.?!' class='popup' popup-width='600' popup-height='250'>Twitter</a></div>");
-					$(".terminal-output").append("<div class='roomy'>blog it on <a href='http://www.tumblr.com/share/link?url=http%3A%2F%2Fprojectgoats.com&name=F.G.O.A.T.S&description=WTF%20is%20Project%20G.O.A.T.S.%3F!' class='popup' popup-width='600' popup-height='700'>Tumblr</a></div>");
+					$(".terminal-output").append("<div class='roomy'>blog it on <a href='http://www.tumblr.com/share/link?url=http%3A%2F%2Fprojectgoats.com&name=G.O.A.T.S&description=WTF%20is%20Project%20G.O.A.T.S.%3F!' class='popup' popup-width='600' popup-height='700'>Tumblr</a></div>");
 					term.echo("\n\n");
 					echoMenu(term, function(){ term.resume(); });
 					
