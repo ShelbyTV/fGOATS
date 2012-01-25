@@ -116,7 +116,12 @@ var termLoader = function() {
 									$.post('applicants', {'applicant': applicant_info}, null, 'json')
 										.success(function(){
 											term.clear();
-											term.echo("\n\nCongratulations!\nYou have successfully applied to participate in Project G.O.A.T.S.\nYou will receive an email confirmation shortly.\n\n");
+											term.echo("\n\nCongratulations!\nYou have successfully applied to participate in Project G.O.A.T.S.\nYou will receive an email confirmation shortly.\n\n\n");
+											term.echo("Want you application prioritized?  Share >\n\n");
+											$(".terminal-output").append("<div class='roomy'>tell friends with <a href='//www.facebook.com/sharer.php?u=http%3A%2F%2Fprojectgoats.com&t=WTF%20is%20Project%20G.O.A.T.S.%3F!' class='popup' popup-width='640' popup-height='270'>Facebook</a></div>");
+											$(".terminal-output").append("<div class='roomy'>tweet it out on <a href='//twitter.com/intent/tweet?url=http%3A%2F%2Fprojectgoats.com&hashtags=shelbytv,goats&text=WTF is Project G.O.A.T.S.?!' class='popup' popup-width='600' popup-height='250'>Twitter</a></div>");
+											$(".terminal-output").append("<div class='roomy'>blog it on <a href='http://www.tumblr.com/share/link?url=http%3A%2F%2Fprojectgoats.com&name=F.G.O.A.T.S&description=WTF%20is%20Project%20G.O.A.T.S.%3F!' class='popup' popup-width='600' popup-height='700'>Tumblr</a></div>");
+											term.echo("\n\n");
 											//reset term
 											term.pop();
 											echoMenu(term);
@@ -230,11 +235,11 @@ var termLoader = function() {
 					term.pause();
 					//manual insertion b/c we want full HTML capability
 					term.echo("> share g.o.a.t.s\n\n\n");
-					$(".terminal-output").append("<div class='roomy'>tell friends with <a href='whatever' class='popup' popup-width='600' popup-height='700'>Facebook</a></div>");
-					$(".terminal-output").append("<div class='roomy'>tweet it out on <a href='whatever' class='popup' popup-width='600' popup-height='700'>Twitter</a></div>");
+					$(".terminal-output").append("<div class='roomy'>tell friends with <a href='//www.facebook.com/sharer.php?u=http%3A%2F%2Fprojectgoats.com&t=WTF%20is%20Project%20G.O.A.T.S.%3F!' class='popup' popup-width='640' popup-height='270'>Facebook</a></div>");
+					$(".terminal-output").append("<div class='roomy'>tweet it out on <a href='//twitter.com/intent/tweet?url=http%3A%2F%2Fprojectgoats.com&hashtags=shelbytv,goats&text=WTF is Project G.O.A.T.S.?!' class='popup' popup-width='600' popup-height='250'>Twitter</a></div>");
+					$(".terminal-output").append("<div class='roomy'>blog it on <a href='http://www.tumblr.com/share/link?url=http%3A%2F%2Fprojectgoats.com&name=F.G.O.A.T.S&description=WTF%20is%20Project%20G.O.A.T.S.%3F!' class='popup' popup-width='600' popup-height='700'>Tumblr</a></div>");
 					term.echo("\n\n");
 					echoMenu(term, function(){ term.resume(); });
-					
 					
 					
 				// ------------ (6) SHELBY.TV ------------
