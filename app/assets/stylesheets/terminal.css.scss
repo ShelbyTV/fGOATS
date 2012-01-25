@@ -59,6 +59,14 @@ body {
     color: #3fa53f;
     font-size: 25px;
     font-family: Visitor;
+
+		> .roomy { margin-bottom: 5px; }
+		a {
+			color: black;
+			background: #3fa53f;
+			padding: 1px 4px;
+			&:hover { color: white; };
+		}
 }
 /* This works only in Safari and Google Chrome */
 @media screen and (-webkit-min-device-pixel-ratio:0) {

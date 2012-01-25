@@ -14,6 +14,7 @@ function echoMenu(t, cb){
 		{c:"2. F.A.Q", d:1},
 		{c:"3. About G.O.A.T.S.", d:1},
 		{c:"4. View Applicant Count", d:1},
+		{c:"5. share g.o.a.t.s.", d:1},
 		{c:"6. Launch Shelby.tv", d:1},
 		{c:'\n', d:1},
 		{c:'\n', d:1}
@@ -223,12 +224,16 @@ var termLoader = function() {
 					
 					
 					
-				// ------------ (5) ? ------------
+				// ------------ (5) Share ------------
 				} else if(command == '5') {
-					content = [
-						{c:'> THERE IS NO 5. PLEASE PAY ATTENTION. <'},
-					];
-					executeTerm(content, term, true);
+					term.clear();
+					term.pause();
+					//manual insertion b/c we want full HTML capability
+					term.echo("> share g.o.a.t.s\n\n\n");
+					$(".terminal-output").append("<div class='roomy'>tell friends with <a href='whatever' class='popup' popup-width='600' popup-height='700'>Facebook</a></div>");
+					$(".terminal-output").append("<div class='roomy'>tweet it out on <a href='whatever' class='popup' popup-width='600' popup-height='700'>Twitter</a></div>");
+					term.echo("\n\n");
+					echoMenu(term, function(){ term.resume(); });
 					
 					
 					
@@ -284,8 +289,22 @@ var termLoader = function() {
 				onInit: function(t){ echoMenu(t); }
 			});
 			
-			$(document).unbind('keydown', welcomeLoader);
+			$(document).unbind('keydown', termLoader);
 	}
 };
 
 $(document).bind('keydown', termLoader);
+
+
+/**
+	share via popup window
+**/
+$("a.popup").live('click', function(e){
+	var width = $(this).attr('popup-width');
+	var height = $(this).attr('popup-height');
+	var left = (screen.width/2)-(width/2);
+	var top = (screen.height/2)-(height/2);
+
+	window.open($(this).attr("href"), "popup", "menubar=no,toolbar=no,status=no,width="+width+",height="+height+",toolbar=no,left="+left+",top="+top);
+	e.stopPropagation(); return false;
+});
