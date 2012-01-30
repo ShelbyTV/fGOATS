@@ -40,7 +40,9 @@ Fgoats::Application.configure do
   # config.cache_store = :mem_cache_store
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
-  # config.action_controller.asset_host = "http://assets.example.com"
+  # hacking b/c we host at projectgoats.com but it's also availble from shelby.tv/projectgoats
+  # and we can't have assets served from our main webapp...
+  config.action_controller.asset_host = "http://projectgoats.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   # config.assets.precompile += %w( search.js )
