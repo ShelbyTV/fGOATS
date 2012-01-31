@@ -282,10 +282,18 @@ var termLoader = function() {
 
 				// ------------ random crap ------------
 				} else if(command == 'god') { term.echo( "god wouldn't be up this late");
-				} else if(command == 'goats') { term.echo( "fgoats");
 				} else if(command == 'wick') { term.echo( "girl");
 				} else if(command == 'spinosa') { term.pause();
-				
+				} else if(command == 'listen') { term.echo( "you hear the sound of a goat screaming in the distance.");
+				} else if(command == 'goats') { term.echo( "delicious, aren't they?");
+				} else if(command == 'help') { term.echo( "if you can count to five, you can figure this thing out on your own.");
+				} else if(command == 'shelby') { term.echo( "yes, Dave?");
+				} else if(command == 'google') { term.echo( "search is dead. social is king");
+				} else if(command == 'googol') { term.echo( "ha!");
+				} else if(command == 'emacs') { term.echo( "fancy yourself an engineer, eh?");
+				} else if(command == 'vim') { term.echo( "you think you're better than me?");
+				} else if(command == 'quit') { term.echo( "the exit is blocked, by a goat.");
+
 
 
 				// ------------ bad command ------------
