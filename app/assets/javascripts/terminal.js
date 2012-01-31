@@ -52,7 +52,8 @@ var termLoader = function() {
 			$('#main-welcome').fadeOut('fast');
 		
 			$('#main').delay(200).hide().fadeIn('fast').terminal(function(command, term) {
-				var content;
+				var content, originalCommand = command;
+				command = command.toLowerCase();
 
 				// ------------ (0) INTERNZERO ------------
 				if(command == '0'){
@@ -303,6 +304,9 @@ var termLoader = function() {
 				
 				//after every entry, make sure we're scrolled enough
 				$("body").scrollTop($(".terminal-output").height());
+				
+				//we're saving every entry, just for shits and gigs...
+				$.post('terminal_commands', {'terminal_command': {'command': originalCommand}}, null, 'json');
 				
 			}, {
 				greetings : "Main Screen On...\n" + "> \n" + "We have signal! \n" + "> \n\n\n",

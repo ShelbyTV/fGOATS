@@ -7,6 +7,8 @@ Fgoats::Application.routes.draw do
       get 'count'
     end
   end
+  
+  resources :terminal_commands
     
 
   # Sample of regular route:
