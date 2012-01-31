@@ -270,6 +270,16 @@ var termLoader = function() {
 
 
 
+				// ------------ (11) Spinal Tap ------------
+				} else if(command == '11') {
+					term.clear();
+					term.pause();
+					term.echo("\n");
+					//manual insertion b/c we want full HTML capability
+					$(".terminal-output").append("<div class='roomy'><a href='http://www.youtube.com/watch?v=EbVKWCpNFhY' class='popup' popup-width='640' popup-height='570'>our goats go to 11</a></div>");
+					echoMenu(term, function(){ term.resume(); });
+
+
 				// ------------ random crap ------------
 				} else if(command == 'god') { term.echo( "god wouldn't be up this late");
 				} else if(command == 'goats') { term.echo( "fgoats");
@@ -281,10 +291,10 @@ var termLoader = function() {
 				// ------------ bad command ------------
 				} else {
 					term.error('Unknown Command: ' + command + ' ');
-					//after every entry, make sure we're scrolled enough
-					$("body").scrollTop($(".terminal-output").height());
 				}
 				
+				//after every entry, make sure we're scrolled enough
+				$("body").scrollTop($(".terminal-output").height());
 				
 			}, {
 				greetings : "Main Screen On...\n" + "> \n" + "We have signal! \n" + "> \n\n\n",
