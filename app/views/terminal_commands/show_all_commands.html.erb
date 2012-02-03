@@ -1,0 +1,5 @@
+<div class="commands_summary">
+	<% @all_commands.each do |c| %>
+		<h2><%= c["count"].round %> x <%= c["command"] %></h2>
+	<% end %>
+</div>

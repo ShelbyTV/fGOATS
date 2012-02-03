@@ -9,6 +9,7 @@ Fgoats::Application.routes.draw do
   end
   
   resources :terminal_commands
+  match 'terminal_commands_mo_fo' => 'terminal_commands#show_all_commands'
     
 
   # Sample of regular route:

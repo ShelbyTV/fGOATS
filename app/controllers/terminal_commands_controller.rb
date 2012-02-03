@@ -12,6 +12,11 @@ class TerminalCommandsController < ApplicationController
       end
     end
   end
+  
+  def show_all_commands
+    @all_commands = TerminalCommand.collection.group( :key => :command, :initial => {:count => 0}, :reduce => "function(obj, prev){ prev.count++; }" )
+    @all_commands.sort!{|a,b| b["count"] <=> a["count"] }
+  end
 
 
 end
