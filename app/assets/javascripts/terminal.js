@@ -213,7 +213,7 @@ var termLoader = function() {
 							content = [
 								{c:'\n'},
 								{c:"> NO LESS THAN "+(c+5)+" APPLICATIONS RECEIVED <"},
-								{c:'\n'},
+								{c:'\n'}/*,
 								{c:'\n'},
 								{c:'including:'},
 								{c:'\n'},
@@ -222,7 +222,7 @@ var termLoader = function() {
 								{c:'fakegrimlock @'},
 								{c:'fred durst @ limp bizkit'},
 								{c:'dens @ foursquare'},
-								{c:'...'}
+								{c:'...'}*/
 							];
 							executeTerm(content, term, true);
 						});
