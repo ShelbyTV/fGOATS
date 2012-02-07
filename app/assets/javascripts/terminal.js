@@ -46,7 +46,7 @@ function executeTerm(content, t, showMenu, cb){
 	
 }
 
-var termLoader = function() {
+var termLoader = function(event) {
 	if(event.keyCode == 13) {
 		
 			$('#main-welcome').fadeOut('fast');
