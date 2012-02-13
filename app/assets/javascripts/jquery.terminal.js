@@ -371,17 +371,17 @@ function get_stack(caller) {
     jQuery.fn.extend({
         everyTime: function(interval, label, fn, times, belay) {
             return this.each(function() {
-                jQuery.timer.add(this, interval, label, fn, times, belay);
+                $.timer.add(this, interval, label, fn, times, belay);
             });
         },
         oneTime: function(interval, label, fn) {
             return this.each(function() {
-                jQuery.timer.add(this, interval, label, fn, 1);
+                $.timer.add(this, interval, label, fn, 1);
             });
         },
         stopTime: function(label, fn) {
             return this.each(function() {
-                jQuery.timer.remove(this, label, fn);
+                $.timer.remove(this, label, fn);
             });
         }
     });
@@ -425,7 +425,7 @@ function get_stack(caller) {
                     label = interval;
                 }
 
-                interval = jQuery.timer.timeParse(interval);
+                interval = $.timer.timeParse(interval);
 
                 if (typeof interval != 'number' ||
                     isNaN(interval) ||
@@ -455,7 +455,7 @@ function get_stack(caller) {
                     this.inProgress = true;
                     if ((++counter > times && times !== 0) ||
                         fn.call(element, counter) === false) {
-                        jQuery.timer.remove(element, label, fn);
+                        $.timer.remove(element, label, fn);
                     }
                     this.inProgress = false;
                 };
@@ -516,11 +516,11 @@ function get_stack(caller) {
 
     if (jQuery.browser.msie) {
         jQuery(window).one('unload', function() {
-            var global = jQuery.timer.global;
+            var global = $.timer.global;
             for (var label in global) {
                 var els = global[label], i = els.length;
                 while (--i) {
-                    jQuery.timer.remove(els[i], label);
+                    $.timer.remove(els[i], label);
                 }
             }
         });
