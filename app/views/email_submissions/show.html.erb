@@ -8,6 +8,10 @@
 	<%= image_tag 'shelby_logo.png', :id => 'shelby_logo' %>
 	<%= image_tag 'trex.png', :id => 'trex' %>
 	
+	<audio controls="trex_audio_controls" id="trex_audio_controls" autoplay="autoplay">
+	  <source src="/trex.wav" type="audio/wav" />
+	</audio>
+	
 	<%= javascript_tag do %>
 		$(function(){
 			console.log("ok");
