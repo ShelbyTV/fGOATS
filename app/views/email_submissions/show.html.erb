@@ -4,6 +4,18 @@
 	<h1 id="thanks">Thanks.</h1>
 	
 	<%= image_tag 'goat.png', :id => 'goat_on_leash' %>
+	<%= image_tag 'goat_2.png', :id => 'just_leash' %>
 	<%= image_tag 'shelby_logo.png', :id => 'shelby_logo' %>
 	<%= image_tag 'trex.png', :id => 'trex' %>
+	
+	<%= javascript_tag do %>
+		$(function(){
+			console.log("ok");
+			$("#trex").animate({right: '2000px', top: '1000px'}, 3000);
+			setTimeout(function(){
+				$('#goat_on_leash').hide();
+				$('#just_leash').show();
+			}, 1000);
+		})
+	<% end %>
 </div>
