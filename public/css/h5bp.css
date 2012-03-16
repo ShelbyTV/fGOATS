@@ -72,12 +72,12 @@ td { vertical-align: top; }
       box-sizing: border-box;
     }
   html{overflow-y:scroll;}  
-  body{font:300 normal 1em/1.375 'Ubuntu','Tahoma','Helvetica Neue',sans-serif;background:url('img/bg.png') #333; color:#b7b7b7;}
+  body{font:300 normal 1em/1.375 'Ubuntu','Tahoma','Helvetica Neue',sans-serif;background:url('../img/bg.png') #333; color:#b7b7b7;}
   
   h1{font-size:1.125em;}
 
   hr{background:transparent;border:1px solid #b7b7b7;display:block;height:0;}
-  .flourish:after{background:url('img/little_goat.png') center center no-repeat transparent;content:"\0020";float:right;height:25px;margin-top:-25px;width:45px;}
+  .flourish:after{background:url('../img/little_goat.png') center center no-repeat transparent;content:"\0020";float:right;height:25px;margin-top:-25px;width:45px;}
 
   .main{margin:0 auto;width:100%;text-align:center;} 
   .lining{margin-left:-5.5%;}
@@ -113,7 +113,9 @@ td { vertical-align: top; }
   .project-interviews li {float:left;list-style-type:none;margin:0 3% 0 0;width:47%;}
   .project-interviews img,
   .project-gallery img{border:1px solid #b7b7b7; width:100%/* 120px */;}
-  .project-interviews p{margin:10px 0;}
+  .project-interviews h2, .project-interviews h3{font-size:0.875em;font-weight:300;margin:10px 0;}
+  .project-interviews h2{margin-bottom:0;margin-top:5px;}
+  .project-interviews h3{margin-top:0;}
 
   .footer{border-top:1px solid #b7b7b7;padding:20px;}
   .shelby-logo{background:url('../img/shelby.png') no-repeat top center transparent;display:block;height:50px;}
