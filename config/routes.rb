@@ -1,7 +1,6 @@
 Fgoats::Application.routes.draw do
-
+  
   resources :email_submissions
-  root :to => 'email_submissions#new'
 
   match '/' => 'terminal#term'
   
