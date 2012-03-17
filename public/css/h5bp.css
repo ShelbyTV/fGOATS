@@ -81,13 +81,17 @@ td { vertical-align: top; }
 
   .main{margin:0 auto;width:100%;text-align:center;} 
   .lining{margin-left:-5.5%;}
+
   .header{margin-bottom:20px;}
   .header h1{background:url('../img/goats_logo.png') no-repeat center center transparent;background-size:100%;height:125px;margin-bottom:20px;max-width:100%;}
   .header p{text-align:left;}
 
-  hr, .header p, .project-banner, .project-body h1, .project-body p, .project-nav, .project-interviews, .project-gallery, .footer{margin:10px 10px 10px 7.166667%;}
+  hr, .header p, .project-banner, .project-body h1, .project-body p, .project-nav, .project-interviews, .project-gallery, .footer, .social{margin:10px 10px 10px 7.166667%;}
   .header h1 {margin:10px;}
 
+  .social{text-align:center;}
+  .fb_edge_widget_with_comment{top:-3px;}
+  
   .project-banner img{border:1px solid #b7b7b7;width:100%/* 408px */;}
 
   .project-nav{margin-top:1.5em;}
